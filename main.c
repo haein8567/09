@@ -4,15 +4,18 @@
 
 int main(void)
 {
-    int i;
+    int i, average;
+    int sum;
     int grade[SIZE];
-    printf("Enter the 5 grades:\n");
 
-    for( i=0; i<SIZE; i++)
-    scanf("%d", &grade[i]);
-
-    for( i=0; i<SIZE; i++)
-    printf("grade[%d] = %d\n", i, grade[i]);
-
+    sum = 0;
+    for(i=0; i < SIZE; i++)
+    {
+        printf("Enter grade: ");
+        scanf("%d", &grade[i]);
+        sum += grade[i];
+    }
+    average = sum / SIZE;
+    printf("Average grade: %d\n", average);
     return 0;
 }
