@@ -1,16 +1,51 @@
 #include <stdio.h>
-#define SIZE 4
+#define ROWS  3
+#define COLS  3
 
-void square_array(int a[], int size);
-void print_array(int a[], int size);
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS]);
+void printMatrix(int A[][COLS]);
 
 int main(void)
-{
-    int list[SIZE] = {1,2,3,4};
+{ 
+    int A[ROWS][COLS] = {
+        {2, 3, 0},
+        {8, 9, 1},
+        {7, 0, 5}};
+    int B[ROWS][COLS] = {
+        {1, 0, 0},
+        {0, 1, 0},
+        {0, 0, 1}};
+    int C[ROWS][COLS];
 
-    print_array(list, SIZE);
-    square_array(list, SIZE);
-    print_array(list, SIZE);
+    addMatrix(A, B, C);
+    printMatrix(C);
 
     return 0;
+}
+
+#include <stdio.h>
+#define ROWS  3
+#define COLS  3
+
+void addMatrix(int A[ROWS][COLS], int B[ROWS][COLS], int C[ROWS][COLS])
+{
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+void printMatrix(int A[][COLS])
+{
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
 }
